@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">HereWeGo</string>
     <string name="action_settings">Settings</string>
-    <string name="edit_name">test</string>
-    <string name="button_send">send</string>
+    <string name="edit_name">OH yeah</string>
+    <string name="button_send">HeyBabes</string>
+    <string name="PlaceName">Golconda Fort</string>
+    <string name="City">Hyderabad</string>
+    <string name="Country">India</string>
+    <string-array name="days_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saurday</item>
+        <item>Sunday</item>
+    </string-array>
 </resources>
