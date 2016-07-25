@@ -7,16 +7,11 @@
     android:orientation="horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_edit_trip">
-    <EditText android:id="@+id/edit_name"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_name" />
-
-    <Button
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-        android:text="@string/button_send"/>
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:id="@+id/listview">
+</ListView>
 
 </LinearLayout>
