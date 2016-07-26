@@ -13,7 +13,7 @@ package project.hackathon.herewego.ui.activity;
         import java.util.ArrayList;
 
         import project.hackathon.herewego.R;
-        import project.hackathon.herewego.models.FeedEntity;
+        import project.hackathon.herewego.Models.FeedEntity;
         import project.hackathon.herewego.adaptors.FeedListAdapter;
 public class FeedActivity extends AppCompatActivity {
 

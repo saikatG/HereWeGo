@@ -1,4 +1,4 @@
-package project.hackathon.herewego.models;
+package project.hackathon.herewego.Models;
 
 /**
  * Created by paverm on 27-07-2016.

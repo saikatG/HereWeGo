@@ -24,6 +24,7 @@
     </string>
     <string name="title_activity_add_location">AddLocation</string>
     <string name="title_activity_entity_page">EntityPage</string>
+    <string name="title2">Yo</string>
     <string-array name="days_array">
         <item>Monday</item>
         <item>Tuesday</item>

@@ -13,7 +13,7 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.FeedEntity;
+import project.hackathon.herewego.Models.FeedEntity;
 
 public class FeedListAdapter extends ArrayAdapter<FeedEntity>{
 
