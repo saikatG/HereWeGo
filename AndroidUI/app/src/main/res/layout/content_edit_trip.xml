@@ -7,11 +7,15 @@
     android:orientation="horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_edit_trip">
-<ListView
+<android.support.v7.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:id="@+id/listview">
-</ListView>
+    android:scrollbars="vertical"
+    android:id="@+id/recyclerview_edittrip"
+    android:layerType="software"
+
+    >
+</android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

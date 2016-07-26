@@ -13,7 +13,7 @@ import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
-import project.hackathon.herewego.models.TripDetailsFromSms;
+import project.hackathon.herewego.Models.TripDetailsFromSms;
 import project.hackathon.herewego.R;
 import project.hackathon.herewego.ui.activity.HomeActivity;
 

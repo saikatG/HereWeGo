@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.HWGSharedPreferences;
+import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 import org.w3c.dom.Text;
 

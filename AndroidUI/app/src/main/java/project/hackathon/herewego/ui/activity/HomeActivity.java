@@ -21,9 +21,9 @@ import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Random;
 
-import project.hackathon.herewego.EditTrip;
+import project.hackathon.herewego.ui.activity.EditTrip;
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.HWGSharedPreferences;
+import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 public class HomeActivity extends AppCompatActivity {
 

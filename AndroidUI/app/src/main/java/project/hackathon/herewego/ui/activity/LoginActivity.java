@@ -32,7 +32,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.HWGSharedPreferences;
+import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 public class LoginActivity extends AppCompatActivity {
 
