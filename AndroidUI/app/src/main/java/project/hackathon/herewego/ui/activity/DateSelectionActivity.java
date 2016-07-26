@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.models.HWGSharedPreferences;
 
 import org.w3c.dom.Text;
 
@@ -24,6 +25,7 @@ public class DateSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_selection);
+        HWGSharedPreferences.init(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

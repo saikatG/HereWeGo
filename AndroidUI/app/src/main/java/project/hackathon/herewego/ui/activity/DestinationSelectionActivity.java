@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.models.HWGSharedPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class DestinationSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination_selection);
+        HWGSharedPreferences.init(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -1,4 +1,4 @@
-package project.hackathon.herewego.Adaptors;
+package project.hackathon.herewego.adaptors;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,10 +13,8 @@ import android.widget.Toast;
 import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import project.hackathon.herewego.EditTrip;
-import project.hackathon.herewego.Models.Location;
+import project.hackathon.herewego.models.Location;
 import project.hackathon.herewego.R;
 
 /**
