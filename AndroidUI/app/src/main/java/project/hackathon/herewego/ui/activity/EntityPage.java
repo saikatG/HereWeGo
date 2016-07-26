@@ -18,8 +18,8 @@ import android.widget.TextView;
 
 import project.hackathon.herewego.Adapters.CustomListAdaptor;
 import project.hackathon.herewego.Adapters.ImageAdapter;
-import project.hackathon.herewego.Models.Location;
-import project.hackathon.herewego.Models.Review;
+import project.hackathon.herewego.models.Location;
+import project.hackathon.herewego.models.Review;
 import project.hackathon.herewego.R;
 import project.hackathon.herewego.custom.components.ScrollDisabledListView;
 

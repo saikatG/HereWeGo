@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import project.hackathon.herewego.Adapters.LocationsViewAdaptor;
 import project.hackathon.herewego.Adapters.RecyclerViewAdaptor;
-import project.hackathon.herewego.Models.LocationsManager;
+import project.hackathon.herewego.models.LocationsManager;
 import project.hackathon.herewego.R;
 
 public class AddLocation extends AppCompatActivity {
