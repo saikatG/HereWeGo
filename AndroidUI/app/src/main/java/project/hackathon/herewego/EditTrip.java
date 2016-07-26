@@ -13,13 +13,10 @@ import android.widget.ListView;
 import com.google.common.collect.HashBasedTable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
 
-import project.hackathon.herewego.Adaptors.ListViewAdaptor;
-import project.hackathon.herewego.Models.Location;
-import project.hackathon.herewego.Models.Trip;
+import project.hackathon.herewego.adaptors.ListViewAdaptor;
+import project.hackathon.herewego.models.Location;
+import project.hackathon.herewego.models.Trip;
 
 public class EditTrip extends AppCompatActivity {
 

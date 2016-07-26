@@ -1,4 +1,4 @@
-package project.hackathon.herewego.Models;
+package project.hackathon.herewego.models;
 
 /**
  * Created by saikat on 7/24/2016.

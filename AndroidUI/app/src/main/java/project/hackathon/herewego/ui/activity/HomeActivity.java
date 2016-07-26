@@ -16,10 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 import java.util.Random;
 
 import project.hackathon.herewego.EditTrip;
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.models.HWGSharedPreferences;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -27,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        HWGSharedPreferences.init(this);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.home_actionbar);
         setSupportActionBar(myToolbar);
 

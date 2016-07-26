@@ -1,12 +1,13 @@
 <resources>
+    <string name="facebook_app_id">635114379987686</string>
     <string name="app_name">HereWeGo</string>
     <string name="action_settings">Settings</string>
     <string name="edit_name">test</string>
     <string name="button_send">send</string>
 
-    <string name="title_activity_date_selection">DateSelectionActivity</string>
-    <string name="title_activity_location_selection">LocationSelectionActivity</string>
-    <string name="title_activity_item_selection">ItemSelectionActivity</string>
+    <string name="title_activity_date_selection">Dates</string>
+    <string name="title_activity_destination_selection">Destination</string>
+    <string name="title_activity_location_selection">Locations</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
