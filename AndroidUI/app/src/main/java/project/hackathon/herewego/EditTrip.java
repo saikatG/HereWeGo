@@ -44,9 +44,9 @@ public class EditTrip extends AppCompatActivity {
     private Trip getTrip(){
         // this will ideally be coming from the previous activity(Intent)
         ArrayList<Location> triplocations = new ArrayList<Location>();
-        Location l1 = new Location("l1","Golconda", 17.3833, 78.4011, 4.5, "fort", true, "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg",1);
-        Location l2 = new Location("l2","Golconda", 17.3833, 78.4011, 4.5, "fort", true, "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg",1);
-        Location l3 = new Location("l3","Golconda", 17.3833, 78.4011, 4.5, "fort", true, "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg",1);
+        Location l1 = new Location("l1","Golconda", "17.3833"," 78.4011", "4.5", "fort", new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, "1");
+        Location l2 = new Location("l2","Golconda", "17.3833", "78.4011", "4.5", "fort", new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, "1");
+        Location l3 = new Location("l3","Golconda", "17.3833", "78.4011", "4.5", "fort", new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, "1");
         triplocations.add(l1);
         triplocations.add(l2);
         triplocations.add(l3);

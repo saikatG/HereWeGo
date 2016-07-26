@@ -41,7 +41,7 @@ public class ListViewAdaptor extends ArrayAdapter<Location> {
 
         firstLine.setText(values.get(position).getName());
         secondLine.setText(values.get(position).getRating()+"★ | "+String.valueOf(values.get(position).getTime())+" hr");
-        Ion.with(imageView).load(values.get(position).getImageUrl());
+        Ion.with(imageView).load(values.get(position).getImageUrl()[0]);
 
         ImageButton deleteButton = (ImageButton)rowView.findViewById(R.id.deletebutton);
         deleteButton.setOnClickListener(new View.OnClickListener(){

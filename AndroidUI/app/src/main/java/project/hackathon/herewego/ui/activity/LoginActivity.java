@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
                                     String id = json.getString("id");
                                     String firstname = json.getString("first_name");
                                     String lastname = json.getString("last_name");
-                                    String gender = json.getString("gender");
                                     JSONObject profilePicture = json.getJSONObject("picture").getJSONObject("data");
                                     String profilePictureURL = profilePicture.getString("url");
 
@@ -76,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                                     preferences.edit().putString("currentUserFirstName", firstname).apply();
                                     preferences.edit().putString("currentUserLastName", lastname).apply();
                                     preferences.edit().putString("currentUserEMail", email).apply();
-                                    preferences.edit().putString("currentUserGender", gender).apply();
                                     preferences.edit().putString("currentUserProfilePictureURL", profilePictureURL).apply();
                                 } catch (JSONException e) {
                                     e.printStackTrace();

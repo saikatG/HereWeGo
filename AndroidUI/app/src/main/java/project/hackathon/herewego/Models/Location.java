@@ -10,10 +10,11 @@ public class Location {
     double Longitude;
     double rating;
     String category;
-    boolean IsPreferred;
-    String ImageUrl;
+    String[] ImageUrl;
     String Name;
-    int Time;
+    int time;
+    int durationToVisit;
+    LocationVisitingSchedule schedule;
 
 
     public String getId() {
@@ -36,18 +37,13 @@ public class Location {
         return category;
     }
 
-    public boolean isPreferred() {
-        return IsPreferred;
-    }
-
-    public String getImageUrl() {
+    public String[] getImageUrl() {
         return ImageUrl;
     }
 
     public int getTime() {
-        return Time;
+        return time;
     }
-
 
 
     public String getName() {
@@ -55,16 +51,29 @@ public class Location {
     }
 
 
-    public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl, int time){
-        this.Id =id;
-        this.category=category;
-        this.ImageUrl= ImageUrl;
-        this.IsPreferred= IsPreferred;
-        this.Latitude=latitude;
-        this.Longitude=longitude;
-        this.rating=rating;
-        this.Time= time;
+    public Location(String id, String name) {
+        this.Id = id;
+        this.category = null;
+        this.ImageUrl = null;
+        this.Latitude = 0.0;
+        this.Longitude = 0.0;
+        this.rating = 0.0;
+        this.time = 0;
         this.Name = name;
+    }
+
+    public Location(String id, String name, String latitude,
+                    String longitude, String rating, String category,
+                    String[] ImageUrl, LocationVisitingSchedule schedule, String time) {
+        this.Id = id;
+        this.Name = name;
+        this.Latitude = Double.parseDouble(latitude);
+        this.Longitude = Double.parseDouble(longitude);
+        this.rating = Double.parseDouble(rating);
+        this.category = category;
+        this.ImageUrl = ImageUrl;
+        this.schedule = schedule;
+        this.time = Integer.parseInt(time);
     }
 
 

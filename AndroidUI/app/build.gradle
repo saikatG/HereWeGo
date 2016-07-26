@@ -27,4 +27,5 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'com.koushikdutta.ion:ion:2.+'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile group: 'org.apache.httpcomponents' , name: 'httpclient-android' , version: '4.3.5.1'
 }
