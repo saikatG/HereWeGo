@@ -1,12 +1,8 @@
 package project.hackathon.herewego.Models;
 
-import android.graphics.Bitmap;
-
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
-import java.net.URL;
-import java.util.Date;
 
 /**
  * Created by parroy on 25-Jul-16.

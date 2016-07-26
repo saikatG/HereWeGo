@@ -26,11 +26,11 @@ import java.util.List;
 
 import project.hackathon.herewego.Adapters.RecyclerViewAdaptor;
 import project.hackathon.herewego.Dividers.DividerItemDecoration;
-import project.hackathon.herewego.models.Location;
-import project.hackathon.herewego.models.LocationsManager;
-import project.hackathon.herewego.models.Review;
-import project.hackathon.herewego.models.Trip;
-import project.hackathon.herewego.models.Tuple;
+import project.hackathon.herewego.Models.Location;
+import project.hackathon.herewego.Models.LocationsManager;
+import project.hackathon.herewego.Models.Review;
+import project.hackathon.herewego.Models.Trip;
+import project.hackathon.herewego.Models.Tuple;
 import project.hackathon.herewego.R;
 
 public class EditTrip extends AppCompatActivity {

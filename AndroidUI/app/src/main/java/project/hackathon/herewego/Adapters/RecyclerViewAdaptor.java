@@ -15,8 +15,8 @@ import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 
-import project.hackathon.herewego.models.Location;
-import project.hackathon.herewego.models.LocationsManager;
+import project.hackathon.herewego.Models.Location;
+import project.hackathon.herewego.Models.LocationsManager;
 import project.hackathon.herewego.R;
 import project.hackathon.herewego.ui.activity.EntityPage;
 

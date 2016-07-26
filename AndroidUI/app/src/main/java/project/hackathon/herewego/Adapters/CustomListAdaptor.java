@@ -12,7 +12,7 @@ import com.koushikdutta.ion.Ion;
 
 import java.util.List;
 
-import project.hackathon.herewego.models.Review;
+import project.hackathon.herewego.Models.Review;
 import project.hackathon.herewego.R;
 
 public class CustomListAdaptor extends ArrayAdapter<Review> {

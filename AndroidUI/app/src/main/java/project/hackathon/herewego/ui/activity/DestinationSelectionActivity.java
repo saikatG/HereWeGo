@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.HWGSharedPreferences;
+import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
