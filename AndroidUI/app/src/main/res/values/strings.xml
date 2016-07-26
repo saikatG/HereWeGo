@@ -3,4 +3,15 @@
     <string name="action_settings">Settings</string>
     <string name="edit_name">test</string>
     <string name="button_send">send</string>
+    <string name="title_activity_add_location">AddLocation</string>
+    <string name="title_activity_entity_page">EntityPage</string>
+    <string-array name="days_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saurday</item>
+        <item>Sunday</item>
+    </string-array>
 </resources>
