@@ -1,4 +1,4 @@
-package project.hackathon.herewego.Models;
+package project.hackathon.herewego.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;

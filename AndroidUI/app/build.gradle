@@ -8,6 +8,7 @@ android {
         applicationId "project.hackathon.herewego"
         minSdkVersion 21
         targetSdkVersion 24
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
     }
@@ -26,6 +27,8 @@ dependencies {
     compile 'com.android.support:design:24.0.0-alpha2'
     compile 'com.google.guava:guava:19.0'
     compile 'com.koushikdutta.ion:ion:2.+'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.android.support:multidex:1.0.0'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'com.android.support:recyclerview-v7:24.0+'
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'

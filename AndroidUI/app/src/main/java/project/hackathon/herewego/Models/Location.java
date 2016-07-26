@@ -1,4 +1,4 @@
-package project.hackathon.herewego.Models;
+package project.hackathon.herewego.models;
 
 import org.joda.time.DateTime;
 
