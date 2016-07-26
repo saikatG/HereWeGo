@@ -8,6 +8,7 @@ android {
         applicationId "project.hackathon.herewego"
         minSdkVersion 21
         targetSdkVersion 24
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
     }
@@ -27,4 +28,5 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'com.koushikdutta.ion:ion:2.+'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.android.support:multidex:1.0.0'
 }
