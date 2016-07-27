@@ -93,8 +93,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 LatLng currLatLong = new LatLng(lat, longitude);
                 LoadBitmap loadBitmap = new LoadBitmap(currentLoc.getImageUrl());
                 Bitmap img = null;
+                Bitmap imag = null;
                 try {
-                    img = loadBitmap.execute().get();
+                    imag = loadBitmap.execute().get();
+                    //img.setHeight(40);
+                    //img.setWidth(40);
+                    img = Bitmap.createScaledBitmap(imag, 200, 200, false);
                 }
                 catch (Exception ex){
 
