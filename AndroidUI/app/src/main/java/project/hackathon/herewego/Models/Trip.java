@@ -1,7 +1,7 @@
 package project.hackathon.herewego.Models;
 
 import com.google.common.collect.HashBasedTable;
-
+import project.hackathon.herewego.Models.Trip;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

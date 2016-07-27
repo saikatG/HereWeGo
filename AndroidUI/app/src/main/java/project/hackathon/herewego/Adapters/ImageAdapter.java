@@ -7,6 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.koushikdutta.ion.Ion;
+
+import java.util.ArrayList;
+
 import project.hackathon.herewego.R;
 
 /**
@@ -14,17 +18,14 @@ import project.hackathon.herewego.R;
  */
 public class ImageAdapter extends PagerAdapter {
     Context context;
-    private int[] GalImages = new int[] {
-            R.drawable.pic2,
-            R.drawable.pic2,
-            R.drawable.pic3
-    };
-    public ImageAdapter(Context context){
+    ArrayList<String> imageList;
+    public ImageAdapter(Context context, ArrayList<String> ImageURLs){
         this.context=context;
+        this.imageList=ImageURLs;
     }
     @Override
     public int getCount() {
-        return GalImages.length;
+        return imageList.size();
     }
 
     @Override
@@ -38,7 +39,7 @@ public class ImageAdapter extends PagerAdapter {
         int padding = context.getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
         imageView.setPadding(padding, padding, padding, padding);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        imageView.setImageResource(GalImages[position]);
+        Ion.with(imageView).load(imageList.get(position));
         ((ViewPager) container).addView(imageView, 0);
         return imageView;
     }

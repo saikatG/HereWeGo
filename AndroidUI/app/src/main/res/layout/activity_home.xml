@@ -9,7 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/appbg"
+    android:background="@drawable/appbg3"
     tools:context=".ui.activity.HomeActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/home_actionbar"
@@ -24,11 +24,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:scrollbarStyle="insideInset"
         android:fadeScrollbars="true"
         android:scrollbarSize="1dip"
-        android:fitsSystemWindows="true" >
+        android:fitsSystemWindows="true"
+        android:id="@+id/homeScreenScrollView">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
@@ -44,7 +45,7 @@
                 android:textSize="20dip"/>
             <HorizontalScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:scrollbarStyle="insideInset"
                 android:fadeScrollbars="true"
                 android:scrollbarSize="1dip"
@@ -67,7 +68,7 @@
                 android:textSize="20dip"/>
             <HorizontalScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="130dp"
+                android:layout_height="wrap_content"
                 android:scrollbarStyle="insideInset"
                 android:fadeScrollbars="true"
                 android:scrollbarSize="1dip"
@@ -90,7 +91,7 @@
                 android:textSize="20dip"/>
             <HorizontalScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:scrollbarStyle="insideInset"
                 android:fadeScrollbars="true"
                 android:scrollbarSize="1dip"
@@ -104,10 +105,14 @@
             </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
-    <Button android:id="@+id/newtrip_button"
-        android:layout_width="fill_parent"
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/launchFeed"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_sort_by_size"
         android:layout_alignParentBottom="true"
-        android:text="New Trip!"
-        android:onClick="createNewTrip"/>
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

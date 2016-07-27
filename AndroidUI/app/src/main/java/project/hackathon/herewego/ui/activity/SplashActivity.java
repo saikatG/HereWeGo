@@ -1,5 +1,6 @@
 package project.hackathon.herewego.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -26,29 +27,24 @@ public class SplashActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
-        AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
+        final AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
+        final Intent mainIntent;
         if(currentAccessToken == null) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-                    Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
-                    SplashActivity.this.startActivity(mainIntent);
-                    SplashActivity.this.finish();
-                }
-            }, SPLASH_DISPLAY_LENGTH);
+            mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
         } else {
-            //TODO: fetch user details here: trips, suggestions, bookmarks and pass it on
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-                    Intent mainIntent = new Intent(SplashActivity.this, HomeActivity.class);
-                    SplashActivity.this.startActivity(mainIntent);
-                    SplashActivity.this.finish();
-                }
-            }, SPLASH_DISPLAY_LENGTH);
+            mainIntent = new Intent(SplashActivity.this, HomeActivity.class);
         }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            /* Create an Intent that will start the Menu-Activity. */
+
+                SplashActivity.this.startActivity(mainIntent);
+                SplashActivity.this.finish();
+                if(currentAccessToken == null)
+                    overridePendingTransition(0,0);
+            }
+        }, SPLASH_DISPLAY_LENGTH);
     }
 
 }

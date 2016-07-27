@@ -3,7 +3,6 @@ package project.hackathon.herewego.ui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +22,8 @@ import com.google.common.collect.HashBasedTable;
 import com.mikepenz.itemanimators.ScaleUpAnimator;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.joda.time.Duration;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -155,7 +156,6 @@ public class EditTrip extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

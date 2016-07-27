@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -90,7 +91,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 double lat = currentLoc.getLatitude();
                 double longitude = currentLoc.getLongitude();
                 LatLng currLatLong = new LatLng(lat, longitude);
-                temp = mMap.addMarker(new MarkerOptions().position(currLatLong).title(title));
+                LoadBitmap loadBitmap = new LoadBitmap(currentLoc.getImageUrl());
+                Bitmap img = null;
+                Bitmap imag = null;
+                try {
+                    imag = loadBitmap.execute().get();
+                    //img.setHeight(40);
+                    //img.setWidth(40);
+                    img = Bitmap.createScaledBitmap(imag, 200, 200, false);
+                }
+                catch (Exception ex){
+
+                }
+                if (img == null){
+                    temp = mMap.addMarker(new MarkerOptions().position(currLatLong).title(title));
+                }
+                else{
+                    temp = mMap.addMarker(new MarkerOptions().position(currLatLong).title(title).icon(BitmapDescriptorFactory.fromBitmap(img)));
+                }
+
                 markers.add(temp);
 
                 if (llindex > 0) {
@@ -109,7 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             LatLngBounds bounds = builder.build();
 
-            int padding = 50;
+            int padding = 100;
             CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
             mMap.animateCamera(cu);
 
@@ -186,6 +205,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // Log exception
             return null;
         }
+    }
+
+    public class LoadBitmap extends AsyncTask<String, Void, Bitmap> {
+        private String mUrl;
+
+        public LoadBitmap(String url) {
+            mUrl = url;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            final String src = mUrl;
+            try {
+                URL url = new URL(src);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.setRequestMethod("GET");
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (IOException e) {
+                // Log exception
+                return null;
+            }
+            // do stuff
+        }
+
+
     }
 
 }

@@ -3,6 +3,8 @@ package project.hackathon.herewego.Models;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,9 +19,11 @@ public class Location implements Serializable {
     double Longitude;
     double rating;
     String category;
-    boolean IsPreferred;
     String ImageUrl;
     String Name;
+    int time;
+    int durationToVisit;
+    LocationVisitingSchedule schedule;
     int Time;
     List<String> Images;
     String City;
@@ -33,6 +37,7 @@ public class Location implements Serializable {
     CategoryType Category;
     float AverageRating;
     int DurationToVisit;
+    boolean IsPreferred;
 
     public void setId(String id) {
         Id = id;
@@ -42,7 +47,7 @@ public class Location implements Serializable {
         List<Tuple<DateTime,DateTime>> dates = this.getOpenSchedule().get(day);
         String time = "";
         for(Tuple<DateTime,DateTime> t:dates){
-            time+=t.x.getHourOfDay()+":"+t.x.getMinuteOfDay()+" - "+t.y.getHourOfDay()+":"+t.y.getMinuteOfDay();
+            time+=t.x.toString("HH:mm:ss")+" - "+t.y.toString("HH:mm:ss");
             time+=", ";
         }
         time = time.substring(0,time.length()-2);
@@ -193,16 +198,12 @@ public class Location implements Serializable {
         return category;
     }
 
-    public boolean isPreferred() {
-        return IsPreferred;
-    }
-
     public String getImageUrl() {
         return ImageUrl;
     }
 
     public int getTime() {
-        return Time;
+        return time;
     }
 
     public String getName() {
@@ -210,7 +211,33 @@ public class Location implements Serializable {
     }
 
 
-    public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl, int time){
+    public Location(String id, String name) {
+        this.Id = id;
+        this.category = null;
+        this.ImageUrl = null;
+        this.Latitude = 0.0;
+        this.Longitude = 0.0;
+        this.rating = 0.0;
+        this.time = 0;
+        this.Name = name;
+    }
+
+    public Location(String id, String name, String latitude,
+                    String longitude, double rating, String category,
+                    String ImageUrl, LocationVisitingSchedule schedule, int time) {
+        this.Id = id;
+        this.Name = name;
+        this.Latitude = Double.parseDouble(latitude);
+        this.Longitude = Double.parseDouble(longitude);
+        this.rating = rating;
+        this.category = category;
+        this.ImageUrl = ImageUrl;
+        this.schedule = schedule;
+        this.time = time;
+    }
+
+    public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl,String ImageUrl1,String ImageUrl2, int time){
+        Images = new ArrayList<String>();
         this.Id =id;
         this.category=category;
         this.ImageUrl= ImageUrl;
@@ -220,6 +247,9 @@ public class Location implements Serializable {
         this.rating=rating;
         this.Time= time;
         this.Name = name;
+        this.Images.add(ImageUrl1);
+        this.Images.add(ImageUrl2);
+        this.Images.add(ImageUrl1);
     }
 
     public Location(Location location){
@@ -232,7 +262,6 @@ public class Location implements Serializable {
         this.rating=location.rating;
         this.Time= location.Time;
         this.Name = location.Name;
-
     }
 
     public Location(){

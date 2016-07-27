@@ -2,10 +2,13 @@ package project.hackathon.herewego.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -13,9 +16,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
+
 import java.util.Random;
 
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.Models.Destination;
 import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 public class HomeActivity extends AppCompatActivity {
@@ -25,10 +31,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         HWGSharedPreferences.init(this);
+        Destination.initDestinationList();
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.home_actionbar);
         setSupportActionBar(myToolbar);
 
         LinearLayout myTripsLayout = (LinearLayout) findViewById(R.id.mytrips_view);
+        myTripsLayout.addView(getNewTripButton(myTripsLayout));
         myTripsLayout.addView(getView(myTripsLayout, 3));
         myTripsLayout.addView(getView(myTripsLayout, 3));
         myTripsLayout.addView(getView(myTripsLayout, 3));
@@ -45,6 +54,14 @@ public class HomeActivity extends AppCompatActivity {
         bookmarkedTripsView.addView(getView(bookmarkedTripsView, 3));
         bookmarkedTripsView.addView(getView(bookmarkedTripsView, 3));
         bookmarkedTripsView.addView(getView(bookmarkedTripsView, 3));
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.launchFeed);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchFeed(view);
+            }
+        });
     }
 
     public FrameLayout getView(LinearLayout container, int stackSize) {
@@ -94,13 +111,78 @@ public class HomeActivity extends AppCompatActivity {
         return imageStack;
     }
 
+    public FrameLayout getNewTripButton(LinearLayout container) {
+        FrameLayout imageStack = new FrameLayout(container.getContext());
+        FrameLayout.LayoutParams imageStackLP = new FrameLayout.LayoutParams(500, 500);
+        imageStack.setLayoutParams(imageStackLP);
+
+
+        FrameLayout stackItem = new FrameLayout(container.getContext());
+
+        ImageView imageView = new ImageView(container.getContext());
+        imageView.setImageResource(R.drawable.plusicon);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(250, 250);
+        imageView.setLayoutParams(layoutParams);
+
+
+        stackItem.addView(imageView);
+        FrameLayout.LayoutParams stackItemLP = new FrameLayout.LayoutParams(250, 300);
+        stackItemLP.leftMargin = 150;
+        stackItemLP.topMargin = 100;
+        stackItem.setLayoutParams(stackItemLP);
+
+
+        TextView textView = new TextView(container.getContext());
+        textView.setText("Create a New Trip");
+        textView.setTextColor(Color.BLACK);
+        textView.setTextSize(15);
+        textView.setGravity(Gravity.BOTTOM);
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        stackItem.addView(textView);
+        imageStack.addView(stackItem);
+
+        imageStack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createNewTrip(v);
+            }
+        });
+        return imageStack;
+    }
+
     public void editTrip(View view) {
         Intent intent = new Intent(this, EditTrip.class);
+        startActivity(intent);
+    }
+
+    public void launchFeed(View view) {
+        Intent intent = new Intent(this, FeedActivity.class);
         startActivity(intent);
     }
 
     public void createNewTrip(View view) {
         Intent intent = new Intent(this, DestinationSelectionActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                LoginManager.getInstance().logOut();
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
