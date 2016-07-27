@@ -14,6 +14,7 @@
     android:scrollbars="vertical"
     android:id="@+id/recyclerview_edittrip"
     android:layerType="software"
+    android:paddingBottom="80dp"
 
     >
 </android.support.v7.widget.RecyclerView>

@@ -11,13 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.vision.text.Text;
 import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 
 import project.hackathon.herewego.Models.Location;
 import project.hackathon.herewego.Models.LocationsManager;
+import project.hackathon.herewego.Models.TripType;
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.ui.activity.EditTrip;
 import project.hackathon.herewego.ui.activity.EntityPage;
 
 /**
@@ -26,9 +29,11 @@ import project.hackathon.herewego.ui.activity.EntityPage;
 public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdaptor.ViewHolder> {
     private ArrayList<Location> mDataset;
     private LayoutInflater layoutInflater;
+    private TripType tripType;
 
-    public RecyclerViewAdaptor(ArrayList<Location> myDataset) {
+    public RecyclerViewAdaptor(ArrayList<Location> myDataset, TripType tripType) {
         mDataset = myDataset;
+        this.tripType = tripType;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -81,51 +86,74 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
 
             ImageButton deleteButton = (ImageButton)rowView.findViewById(R.id.deletebutton);
-            deleteButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    String name = mDataset.get(position).getName();
-                    LocationsManager.getInstance().removeLocation(position,true);
-                    notifyDataSetChanged();
-
-                    Toast.makeText(v.getContext(),  name+" removed!", Toast.LENGTH_SHORT).show();
-
-                    //parent.removeViewAt(position);
-                }
-                //Toast.makeText(context, "test "+position, Toast.LENGTH_SHORT).show();
-            });
-
             ImageButton upbutton = (ImageButton)rowView.findViewById(R.id.upbutton);
             ImageButton downbutton = (ImageButton) rowView.findViewById(R.id.downbutton);
 
-            upbutton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    if(position != 0){
-                        Location prevLoc = LocationsManager.getInstance().getChosenLocations().get(position-1);
-                        LocationsManager.getInstance().getChosenLocations().set(position-1,LocationsManager.getInstance().getChosenLocations().get(position));
-                        LocationsManager.getInstance().getChosenLocations().set(position, prevLoc);
+            if(tripType == TripType.EDIT_TRIP) {
+                deleteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = mDataset.get(position).getName();
+                        LocationsManager.getInstance().removeLocation(position, true);
                         notifyDataSetChanged();
-                    }
-                }
-            });
+                        Toast.makeText(v.getContext(), name + " removed!", Toast.LENGTH_SHORT).show();
 
-            downbutton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    if(position != LocationsManager.getInstance().getChosenLocations().size() - 1 ){
-                        Location nextLoc = LocationsManager.getInstance().getChosenLocations().get(position + 1);
-                        LocationsManager.getInstance().getChosenLocations().set(position + 1,LocationsManager.getInstance().getChosenLocations().get(position));
-                        LocationsManager.getInstance().getChosenLocations().set(position, nextLoc);
-                        notifyDataSetChanged();
+                        //parent.removeViewAt(position);
                     }
-                }
-            });
+                    //Toast.makeText(context, "test "+position, Toast.LENGTH_SHORT).show();
+                });
+
+                upbutton.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        if(position != 0){
+                            Location prevLoc = LocationsManager.getInstance().getChosenLocations().get(position-1);
+                            LocationsManager.getInstance().getChosenLocations().set(position-1,LocationsManager.getInstance().getChosenLocations().get(position));
+                            LocationsManager.getInstance().getChosenLocations().set(position, prevLoc);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
+
+                downbutton.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        if(position != LocationsManager.getInstance().getChosenLocations().size() - 1 ){
+                            Location nextLoc = LocationsManager.getInstance().getChosenLocations().get(position + 1);
+                            LocationsManager.getInstance().getChosenLocations().set(position + 1,LocationsManager.getInstance().getChosenLocations().get(position));
+                            LocationsManager.getInstance().getChosenLocations().set(position, nextLoc);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+            else{
+                deleteButton.setVisibility(View.INVISIBLE);
+                upbutton.setVisibility(View.INVISIBLE);
+                downbutton.setVisibility(View.INVISIBLE);
+            }
 
             if(position == getItemCount() - 1){
                 RecyclerView.LayoutParams layoutParams =  (RecyclerView.LayoutParams)rowView.getLayoutParams();
                 layoutParams.bottomMargin = 10;
+            }
+            if(position != getItemCount() -1){
+                TextView textView = (TextView)rowView.findViewById(R.id.bottomLine);
+                /**
+                 * calculate distance btwn this and next
+                 */
+                android.location.Location loc1 = new android.location.Location("");
+                android.location.Location loc2 = new android.location.Location("");
+                loc1.setLatitude(mDataset.get(position).getLatitude());
+                loc1.setLongitude(mDataset.get(position).getLongitude());
 
+                loc2.setLatitude(mDataset.get(position+1).getLatitude());
+                loc2.setLongitude(mDataset.get(position+1).getLongitude());
+                EditTrip.getDistance(loc1.getLatitude(),loc1.getLongitude(),loc2.getLatitude(),loc2.getLongitude(),textView);
+            }
+            else{
+                TextView textView = (TextView)rowView.findViewById(R.id.bottomLine);
+                textView.setText("");
             }
         }
 

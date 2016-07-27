@@ -264,5 +264,9 @@ public class Location implements Serializable {
         this.Name = location.Name;
     }
 
+    public Location(){
+
+    }
+
 
 }
