@@ -8,7 +8,9 @@ import android.os.Bundle;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 
 import project.hackathon.herewego.R;
 import project.hackathon.herewego.Models.HWGSharedPreferences;
@@ -28,8 +30,12 @@ public class SplashActivity extends AppCompatActivity {
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
         final AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
+        Profile profile = Profile.getCurrentProfile();
+
         final Intent mainIntent;
-        if(currentAccessToken == null) {
+        if(currentAccessToken == null || profile == null) {
+            AccessToken.setCurrentAccessToken(null);
+            LoginManager.getInstance().logOut();
             mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
         } else {
             mainIntent = new Intent(SplashActivity.this, HomeActivity.class);

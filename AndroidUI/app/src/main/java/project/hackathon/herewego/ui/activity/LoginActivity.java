@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -48,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+                loginButton.setVisibility(View.INVISIBLE);
+
                 GraphRequest fetchUserDetails = GraphRequest.newMeRequest(
                     loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                         @Override

@@ -25,7 +25,7 @@
     <string name="title_activity_add_location">Add a Location</string>
     <string name="title_activity_entity_page">Know More</string>
     <string name="title_activity_edit_page">Choose Locations</string>
-    <string name="title2">Yo</string>
+    <string name="title2">Feed</string>
     <string-array name="days_array">
         <item>Monday</item>
         <item>Tuesday</item>
