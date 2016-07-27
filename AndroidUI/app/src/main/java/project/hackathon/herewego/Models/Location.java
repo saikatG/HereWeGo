@@ -3,6 +3,7 @@ package project.hackathon.herewego.Models;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,7 @@ public class Location implements Serializable {
         List<Tuple<DateTime,DateTime>> dates = this.getOpenSchedule().get(day);
         String time = "";
         for(Tuple<DateTime,DateTime> t:dates){
-            time+=t.x.getHourOfDay()+":"+t.x.getMinuteOfDay()+" - "+t.y.getHourOfDay()+":"+t.y.getMinuteOfDay();
+            time+=t.x.toString("HH:mm")+" - "+t.y.toString("HH:mm");
             time+=", ";
         }
         time = time.substring(0,time.length()-2);
@@ -212,6 +213,7 @@ public class Location implements Serializable {
 
 
     public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl, int time){
+        Images = new ArrayList<String>();
         this.Id =id;
         this.category=category;
         this.ImageUrl= ImageUrl;
@@ -221,6 +223,9 @@ public class Location implements Serializable {
         this.rating=rating;
         this.Time= time;
         this.Name = name;
+        this.Images.add(ImageUrl);
+        this.Images.add(ImageUrl);
+        this.Images.add(ImageUrl);
     }
 
     public Location(Location location){
