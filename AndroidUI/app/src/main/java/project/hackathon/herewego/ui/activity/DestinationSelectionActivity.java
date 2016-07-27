@@ -1,40 +1,25 @@
 package project.hackathon.herewego.ui.activity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextWatcher;
 import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import project.hackathon.herewego.R;
-import project.hackathon.herewego.models.Destination;
-import project.hackathon.herewego.models.FullLocationList;
-import project.hackathon.herewego.models.HWGSharedPreferences;
-import project.hackathon.herewego.models.PartialLocationList;
+import project.hackathon.herewego.Models.Destination;
+import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import static android.R.layout.simple_list_item_1;
 
 public class DestinationSelectionActivity extends AppCompatActivity {
 

@@ -14,7 +14,7 @@ import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 
-import project.hackathon.herewego.models.Location;
+import project.hackathon.herewego.Models.Location;
 import project.hackathon.herewego.R;
 
 /**
@@ -41,7 +41,7 @@ public class ListViewAdaptor extends ArrayAdapter<Location> {
 
         firstLine.setText(values.get(position).getName());
         secondLine.setText(values.get(position).getRating()+"★ | "+String.valueOf(values.get(position).getTime())+" hr");
-        Ion.with(imageView).load(values.get(position).getImageUrl()[0]);
+        Ion.with(imageView).load(values.get(position).getImageUrl());
 
         ImageButton deleteButton = (ImageButton)rowView.findViewById(R.id.deletebutton);
         deleteButton.setOnClickListener(new View.OnClickListener(){

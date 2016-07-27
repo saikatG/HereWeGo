@@ -1,4 +1,4 @@
-package project.hackathon.herewego.models;
+package project.hackathon.herewego.Models;
 
 import android.os.AsyncTask;
 
@@ -14,7 +14,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**

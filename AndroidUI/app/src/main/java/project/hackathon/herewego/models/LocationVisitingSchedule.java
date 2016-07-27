@@ -1,6 +1,5 @@
-package project.hackathon.herewego.models;
+package project.hackathon.herewego.Models;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

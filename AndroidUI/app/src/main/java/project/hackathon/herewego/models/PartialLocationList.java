@@ -1,4 +1,4 @@
-package project.hackathon.herewego.models;
+package project.hackathon.herewego.Models;
 
 import android.os.AsyncTask;
 
@@ -118,8 +118,8 @@ public class PartialLocationList {
                             (String)location.get("Latitude"),
                             (String)location.get("Longitude"),
                             (double)location.get("AverageRating"),
-                            (int)location.get("Category"),
-                            imagesArray,
+                            (String)location.get("Category"),
+                            imagesArray[0],
                             locationVisitingSchedule,
                             (int)location.get("DurationToVisit")
                     );

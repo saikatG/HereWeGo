@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/feedEntity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/PostDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/profile_pic"
+        android:layout_gravity="center"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+        />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="Saikat Dutta"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@id/profile_pic"/>
+
+    <TextView
+        android:id="@+id/DateOfPost"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17/07/2016"
+        android:layout_toRightOf="@id/profile_pic"
+        android:layout_below="@id/userName"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/userFeed"
+        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I loved Golkona Fort"
+        android:layout_below="@id/PostDetails"/>
+    <ImageView
+        android:id="@+id/TripImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userFeed"/>
+    <ToggleButton
+        android:id="@+id/toggle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/togglefavourite"
+        android:textOn=""
+        android:textOff=""
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/TripImage"
+        />
+</RelativeLayout>

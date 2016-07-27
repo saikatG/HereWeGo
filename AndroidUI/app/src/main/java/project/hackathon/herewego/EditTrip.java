@@ -15,8 +15,8 @@ import com.google.common.collect.HashBasedTable;
 import java.util.ArrayList;
 
 import project.hackathon.herewego.adaptors.ListViewAdaptor;
-import project.hackathon.herewego.models.Location;
-import project.hackathon.herewego.models.Trip;
+import project.hackathon.herewego.Models.Location;
+import project.hackathon.herewego.Models.Trip;
 
 public class EditTrip extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class EditTrip extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Trip trip = getTrip();
-        ListView listView = (ListView)findViewById(R.id.listview);
+        ListView listView = (ListView)findViewById(R.id.recyclerview_edittrip);
         ListViewAdaptor listViewAdaptor = new ListViewAdaptor(this, trip.getLocations());
         listView.setAdapter(listViewAdaptor);
 
@@ -44,9 +44,9 @@ public class EditTrip extends AppCompatActivity {
     private Trip getTrip(){
         // this will ideally be coming from the previous activity(Intent)
         ArrayList<Location> triplocations = new ArrayList<Location>();
-        Location l1 = new Location("l1","Golconda", "17.3833"," 78.4011", 4.5, 0, new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, 1);
-        Location l2 = new Location("l2","Golconda", "17.3833", "78.4011", 4.5, 0, new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, 1);
-        Location l3 = new Location("l3","Golconda", "17.3833", "78.4011", 4.5, 0, new String[]{"http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg"}, null, 1);
+        Location l1 = new Location("l1","Golconda", "17.3833"," 78.4011", 4.5, "fort", "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg", null, 1);
+        Location l2 = new Location("l2","Golconda", "17.3833", "78.4011", 4.5, "fort", "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg", null, 1);
+        Location l3 = new Location("l3","Golconda", "17.3833", "78.4011", 4.5, "fort", "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg", null, 1);
         triplocations.add(l1);
         triplocations.add(l2);
         triplocations.add(l3);
