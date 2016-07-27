@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.activity.EditTrip">
+    tools:context=".ui.activity.FeedActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,17 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_edit_trip" />
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/mapLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_map_black_24dp"
-        app:layout_anchorGravity="top"  />
+    <include layout="@layout/content_feed" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -39,8 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_input_add" />
-
-
+        android:src="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>

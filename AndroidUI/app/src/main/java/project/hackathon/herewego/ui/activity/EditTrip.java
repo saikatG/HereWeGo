@@ -34,6 +34,7 @@ import project.hackathon.herewego.Models.Review;
 import project.hackathon.herewego.Models.Trip;
 import project.hackathon.herewego.Models.Tuple;
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.RenderMap.MapsActivity;
 
 public class EditTrip extends AppCompatActivity {
 
@@ -86,6 +87,19 @@ public class EditTrip extends AppCompatActivity {
 
             }
         });
+
+        FloatingActionButton mapButton = (FloatingActionButton) findViewById(R.id.mapLink);
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MapsActivity.class);
+                intent.putExtra("Locations", LocationsManager.getInstance().getChosenLocations());
+                startActivity(intent);
+            }
+        });
+
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
