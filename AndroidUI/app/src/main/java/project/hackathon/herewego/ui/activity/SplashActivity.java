@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
-import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 
 import project.hackathon.herewego.R;

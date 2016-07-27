@@ -32,6 +32,7 @@ import project.hackathon.herewego.Models.Review;
 import project.hackathon.herewego.Models.Trip;
 import project.hackathon.herewego.Models.Tuple;
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.RenderMap.MapsActivity;
 
 public class EditTrip extends AppCompatActivity {
 
@@ -84,6 +85,19 @@ public class EditTrip extends AppCompatActivity {
 
             }
         });
+
+        FloatingActionButton mapButton = (FloatingActionButton) findViewById(R.id.mapLink);
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MapsActivity.class);
+                intent.putExtra("Locations", LocationsManager.getInstance().getChosenLocations());
+                startActivity(intent);
+            }
+        });
+
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -93,14 +107,14 @@ public class EditTrip extends AppCompatActivity {
 
         // this will ideally be coming from the previous activity(Intent)
         ArrayList<Location> triplocations = new ArrayList<Location>();
-        Location l1 = new Location("l1", "Golconda1", 17.3833, 78.4011, 4.5, "fort", true, "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg", 1);
-        Location l2 = new Location("l2", "SalarJung", 17.3833, 78.4011, 4.5, "fort", true, "http://hyderabadadvisor.com/wp-content/uploads/2011/05/Salar-Jung-Museum-1.jpg", 1);
-        Location l3 = new Location("l3", "Hussain Sagar", 17.3833, 78.4011, 4.5, "fort", true, "https://upload.wikimedia.org/wikipedia/commons/1/14/Hussain_Sagar_lake,_Hyderabad.jpg", 1);
-        Location l4 = new Location("l4", "Hussain Sagar", 17.3833, 78.4011, 4.5, "fort", true, "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mecca_Masjid_at_Hyderabad.jpg/340px-Mecca_Masjid_at_Hyderabad.jpg", 1);
-        Location l5 = new Location("l5", "Charminar", 17.3833, 78.4011, 4.5, "fort", false, "https://upload.wikimedia.org/wikipedia/commons/d/d1/Charminar-Pride_of_Hyderabad.jpg", 1);
-        Location l6 = new Location("l6", "Charminar", 17.3833, 78.4011, 4.5, "fort", false, "https://upload.wikimedia.org/wikipedia/en/a/a5/Falak_palace.jpg", 1);
-        Review R1 = new Review("http://3.bp.blogspot.com/-coH7JStVgw8/TmvdyNQBWhI/AAAAAAAAGQw/V63AT0PZF9o/s1600/Funny+cartoon+faces+pictures2.jpg","Great Place",5,"Parijat1509", new DateTime(DateTime.now()));
-        Review R2 = new Review("http://2.bp.blogspot.com/-DyWKseCweTM/TmvdwjR3U7I/AAAAAAAAGQo/MDr1dutzn7Y/s1600/Funny+cartoon+faces+pictures.jpg","Awesome Place",4,"Saikat1992",new DateTime(DateTime.now()));
+        Location l1 = new Location("l1", "Golconda1", 17.3833, 78.4011, 4.5, "fort", true, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Location l2 = new Location("l2", "SalarJung", 17.3714, 78.4804, 4.5, "fort", true, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Location l3 = new Location("l3", "Hussain Sagar", 17.4239, 78.4738, 4.5, "fort", true, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Location l4 = new Location("l4", "Hussain Sagar", 17.3313, 78.4662, 4.5, "fort", true, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Location l5 = new Location("l5", "Charminar", 17.3616, 78.4747, 4.5, "fort", false, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Location l6 = new Location("l6", "Charminar", 17.4265, 78.4531, 4.5, "fort", false, "http://s31.postimg.org/pcygfgc6j/golconda_small.jpg", 1);
+        Review R1 = new Review("http://s31.postimg.org/pcygfgc6j/golconda_small.jpg","Great Place",5,"Parijat1509", new DateTime(DateTime.now()));
+        Review R2 = new Review("http://s31.postimg.org/pcygfgc6j/golconda_small.jpg","Awesome Place",4,"Saikat1992",new DateTime(DateTime.now()));
         HashMap<String, List<Tuple<DateTime, DateTime>>> openSchedule = new HashMap<>();
         List<Tuple<DateTime,DateTime> > dates = new ArrayList<Tuple<DateTime, DateTime>>() ;
         Tuple<DateTime,DateTime> tuple = new Tuple<>(DateTime.now(), DateTime.now());
