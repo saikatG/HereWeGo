@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -91,14 +92,12 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Log.d("TAG_CANCEL","On cancel");
-
+                onFBLoginFail();
             }
 
             @Override
             public void onError(FacebookException exception) {
-                Log.d("TAG_ERROR", exception.toString());
-
+                onFBLoginFail();
             }
         });
 
@@ -110,6 +109,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void onFBLoginFail() {
+        Toast.makeText(this, "Unable to login!", Toast.LENGTH_SHORT).show();
     }
 
     private void goToHome() {
