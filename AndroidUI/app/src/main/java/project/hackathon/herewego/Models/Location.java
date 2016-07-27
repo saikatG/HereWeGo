@@ -9,7 +9,7 @@ public class Location {
     double Latitude;
     double Longitude;
     double rating;
-    String category;
+    int category;
     String[] ImageUrl;
     String Name;
     int time;
@@ -33,7 +33,7 @@ public class Location {
         return rating;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
@@ -53,7 +53,7 @@ public class Location {
 
     public Location(String id, String name) {
         this.Id = id;
-        this.category = null;
+        this.category = 0;
         this.ImageUrl = null;
         this.Latitude = 0.0;
         this.Longitude = 0.0;
@@ -63,17 +63,17 @@ public class Location {
     }
 
     public Location(String id, String name, String latitude,
-                    String longitude, String rating, String category,
-                    String[] ImageUrl, LocationVisitingSchedule schedule, String time) {
+                    String longitude, double rating, int category,
+                    String[] ImageUrl, LocationVisitingSchedule schedule, int time) {
         this.Id = id;
         this.Name = name;
         this.Latitude = Double.parseDouble(latitude);
         this.Longitude = Double.parseDouble(longitude);
-        this.rating = Double.parseDouble(rating);
+        this.rating = rating;
         this.category = category;
         this.ImageUrl = ImageUrl;
         this.schedule = schedule;
-        this.time = Integer.parseInt(time);
+        this.time = time;
     }
 
 

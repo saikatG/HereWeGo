@@ -88,7 +88,7 @@ public class DestinationSelectionActivity extends AppCompatActivity {
 
     public void launchSelectDateActivity(String destination) {
         FullLocationList.initLocationList(destination);
-        PartialLocationList.initLocationList(destination);
+//        PartialLocationList.initLocationList(destination);
         Intent intent = new Intent(this, DateSelectionActivity.class);
         intent.putExtra("destination", destination);
         startActivity(intent);

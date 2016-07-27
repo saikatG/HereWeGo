@@ -100,8 +100,8 @@ public class PartialLocationList {
                     LocationVisitingSchedule locationVisitingSchedule = new LocationVisitingSchedule();
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                     for(int j = 0; j < daysOfWeek.length; j++) {
-                        JSONArray timeSlots = (JSONArray) jsonSchedule.get(daysOfWeek[j]);
-                        if(timeSlots != null) {
+                        if(jsonSchedule.has(daysOfWeek[j])) {
+                            JSONArray timeSlots = (JSONArray) jsonSchedule.get(daysOfWeek[j]);
                             JSONObject slot0 = (JSONObject) timeSlots.get(0);
                             String time1 = (String)slot0.get("m_Item1");
                             Date openingTime = format.parse(time1);
@@ -117,11 +117,11 @@ public class PartialLocationList {
                             (String)location.get("Name"),
                             (String)location.get("Latitude"),
                             (String)location.get("Longitude"),
-                            (String)location.get("AverageRating"),
-                            (String)location.get("Category"),
+                            (double)location.get("AverageRating"),
+                            (int)location.get("Category"),
                             imagesArray,
                             locationVisitingSchedule,
-                            (String)location.get("DurationToVisit")
+                            (int)location.get("DurationToVisit")
                     );
                     locationList.add(loc);
                 } catch (Exception e) {
