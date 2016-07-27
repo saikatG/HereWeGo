@@ -250,6 +250,8 @@ public class Location implements Serializable {
         this.Images.add(ImageUrl1);
         this.Images.add(ImageUrl2);
         this.Images.add(ImageUrl1);
+        this.durationToVisit = 1;
+        this.time = 1;
     }
 
     public Location(Location location){

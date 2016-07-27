@@ -113,12 +113,12 @@ public class LocationsManager {
         }
     }
     public static void mockData(){
-        Location l1 = new Location("l1", "Golconda Fort", 17.3833, 78.4011, 4.0, "fort", true, "http://i10.dainikbhaskar.com/thumbnail/330x286/web2images/www.dailybhaskar.com/2014/04/02/9411_golconda_fort.jpg",1);
-        Location l2 = new Location("l2", "Salar Jung Museum", 17.3714, 78.4804, 3.5, "fort", true, "http://www.hyd.co.in/images/salarjung-thumb.jpg",1);
-        Location l3 = new Location("l3", "Hussain Sagar", 17.4239, 78.4738, 4.5, "fort", true, "http://hyderabad-india-online.com/wp-content/uploads/2014/01/hussain-sagar_150x150px.png",1);
-        Location l4 = new Location("l4", "Charminar", 17.3616, 78.4747, 5.0, "fort", true, "https://trabol.s3.amazonaws.com/images/4476/2.jpg" ,1);
-        Location l5 = new Location("l5", "Ramoji Film City", 17.2543, 78.6808, 4.5, "fort", false, "http://www.poultryindia.co.in/media/Ramoji-Film-City.jpg", 1);
-        Location l6 = new Location("l6", "Birla Mandir", 17.4062, 78.4691, 5.0, "fort", false, "http://theanwar.com/wp-content/uploads/2011/01/birlamandir.jpg",1);
+        Location l1 = new Location("l1", "Golconda Fort", 17.3833, 78.4011, 4.0, "fort", true, "http://i10.dainikbhaskar.com/thumbnail/330x286/web2images/www.dailybhaskar.com/2014/04/02/9411_golconda_fort.jpg","http://i10.dainikbhaskar.com/thumbnail/330x286/web2images/www.dailybhaskar.com/2014/04/02/9411_golconda_fort.jpg","http://i10.dainikbhaskar.com/thumbnail/330x286/web2images/www.dailybhaskar.com/2014/04/02/9411_golconda_fort.jpg",1);
+        Location l2 = new Location("l2", "Salar Jung Museum", 17.3714, 78.4804, 3.5, "fort", true, "http://www.hyd.co.in/images/salarjung-thumb.jpg","http://www.hyd.co.in/images/salarjung-thumb.jpg","http://www.hyd.co.in/images/salarjung-thumb.jpg",1);
+        Location l3 = new Location("l3", "Hussain Sagar", 17.4239, 78.4738, 4.5, "fort", true, "http://hyderabad-india-online.com/wp-content/uploads/2014/01/hussain-sagar_150x150px.png","http://hyderabad-india-online.com/wp-content/uploads/2014/01/hussain-sagar_150x150px.png","http://hyderabad-india-online.com/wp-content/uploads/2014/01/hussain-sagar_150x150px.png",1);
+        Location l4 = new Location("l4", "Charminar", 17.3616, 78.4747, 5.0, "fort", true, "https://trabol.s3.amazonaws.com/images/4476/2.jpg" ,"https://trabol.s3.amazonaws.com/images/4476/2.jpg" ,"https://trabol.s3.amazonaws.com/images/4476/2.jpg" ,1);
+        Location l5 = new Location("l5", "Ramoji Film City", 17.2543, 78.6808, 4.5, "fort", false, "http://www.poultryindia.co.in/media/Ramoji-Film-City.jpg","http://www.poultryindia.co.in/media/Ramoji-Film-City.jpg","http://www.poultryindia.co.in/media/Ramoji-Film-City.jpg", 1);
+        Location l6 = new Location("l6", "Birla Mandir", 17.4062, 78.4691, 5.0, "fort", false, "http://theanwar.com/wp-content/uploads/2011/01/birlamandir.jpg","http://theanwar.com/wp-content/uploads/2011/01/birlamandir.jpg","http://theanwar.com/wp-content/uploads/2011/01/birlamandir.jpg",1);
         // Set variables of l1
         // Set variables of l1
         l1.setName("Golconda Fort");

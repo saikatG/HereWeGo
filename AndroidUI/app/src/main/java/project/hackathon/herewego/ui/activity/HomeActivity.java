@@ -44,10 +44,10 @@ public class HomeActivity extends AppCompatActivity {
         myTripsLayout.addView(getView(myTripsLayout, 3));
 
         LinearLayout suggestedTripsLayout = (LinearLayout) findViewById(R.id.suggestedtrips_view);
-        suggestedTripsLayout.addView(getView(suggestedTripsLayout, 1));
-        suggestedTripsLayout.addView(getView(suggestedTripsLayout, 1));
-        suggestedTripsLayout.addView(getView(suggestedTripsLayout, 1));
-        suggestedTripsLayout.addView(getView(suggestedTripsLayout, 1));
+        suggestedTripsLayout.addView(getSuggestedDestination(suggestedTripsLayout, 0));
+        suggestedTripsLayout.addView(getSuggestedDestination(suggestedTripsLayout, 1));
+        suggestedTripsLayout.addView(getSuggestedDestination(suggestedTripsLayout, 2));
+        suggestedTripsLayout.addView(getSuggestedDestination(suggestedTripsLayout, 3));
 
         LinearLayout bookmarkedTripsView = (LinearLayout) findViewById(R.id.bookmarkedtrips_view);
         bookmarkedTripsView.addView(getView(bookmarkedTripsView, 3));
@@ -167,6 +167,11 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void createNewTripStageTwo(View view) {
+        Intent intent = new Intent(this, DateSelectionActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
@@ -184,5 +189,50 @@ public class HomeActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public FrameLayout getSuggestedDestination(LinearLayout container, int index) {
+        int[] imageList = new int[]{R.drawable.amsterdam, R.drawable.goa, R.drawable.hyderabad, R.drawable.paris};
+        String[] destinationName = new String[]{"Amsterdam", "Goa", "Hyderabad", "Paris"};
+        int stackSize = 1;
+        FrameLayout imageStack = new FrameLayout(container.getContext());
+        FrameLayout.LayoutParams imageStackLP = new FrameLayout.LayoutParams(500 + (stackSize * 50), 300 + (stackSize * 50));
+
+        imageStack.setLayoutParams(imageStackLP);
+        for(int i = 0; i < stackSize; i++) {
+            FrameLayout stackItem = new FrameLayout(container.getContext());
+
+            Random r = new Random();
+
+            ImageView imageView = new ImageView(container.getContext());
+            imageView.setImageResource(imageList[index]);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            imageView.setLayoutParams(layoutParams);
+
+            stackItem.addView(imageView);
+            FrameLayout.LayoutParams stackItemLP = new FrameLayout.LayoutParams(500, 300);
+            stackItemLP.leftMargin = 50 * (i + 1);
+            stackItemLP.topMargin = 50 * (i + 1);
+            stackItem.setLayoutParams(stackItemLP);
+
+            if(i == stackSize - 1){
+                TextView textView = new TextView(container.getContext());
+                textView.setText(destinationName[index]);
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextColor(Color.WHITE);
+                textView.setTextSize(25);
+
+                stackItem.addView(textView);
+            }
+            imageStack.addView(stackItem);
+        }
+        imageStack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createNewTripStageTwo(v);
+            }
+        });
+        return imageStack;
     }
 }
