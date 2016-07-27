@@ -105,7 +105,7 @@ public class EditTrip extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    private Trip getTrip() {
+    public Trip getTrip() {
 
         // this will ideally be coming from the previous activity(Intent)
         ArrayList<Location> triplocations = new ArrayList<Location>();
