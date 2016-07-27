@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 import project.hackathon.herewego.R;
+import project.hackathon.herewego.Models.Destination;
 import project.hackathon.herewego.Models.HWGSharedPreferences;
 
 public class HomeActivity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         HWGSharedPreferences.init(this);
+        Destination.initDestinationList();
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.home_actionbar);
         setSupportActionBar(myToolbar);
 

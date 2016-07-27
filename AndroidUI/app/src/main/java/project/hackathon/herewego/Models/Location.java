@@ -19,9 +19,11 @@ public class Location implements Serializable {
     double Longitude;
     double rating;
     String category;
-    boolean IsPreferred;
     String ImageUrl;
     String Name;
+    int time;
+    int durationToVisit;
+    LocationVisitingSchedule schedule;
     int Time;
     List<String> Images;
     String City;
@@ -35,6 +37,7 @@ public class Location implements Serializable {
     CategoryType Category;
     float AverageRating;
     int DurationToVisit;
+    boolean IsPreferred;
 
     public void setId(String id) {
         Id = id;
@@ -195,22 +198,43 @@ public class Location implements Serializable {
         return category;
     }
 
-    public boolean isPreferred() {
-        return IsPreferred;
-    }
-
     public String getImageUrl() {
         return ImageUrl;
     }
 
     public int getTime() {
-        return Time;
+        return time;
     }
 
     public String getName() {
         return Name;
     }
 
+
+    public Location(String id, String name) {
+        this.Id = id;
+        this.category = null;
+        this.ImageUrl = null;
+        this.Latitude = 0.0;
+        this.Longitude = 0.0;
+        this.rating = 0.0;
+        this.time = 0;
+        this.Name = name;
+    }
+
+    public Location(String id, String name, String latitude,
+                    String longitude, double rating, String category,
+                    String ImageUrl, LocationVisitingSchedule schedule, int time) {
+        this.Id = id;
+        this.Name = name;
+        this.Latitude = Double.parseDouble(latitude);
+        this.Longitude = Double.parseDouble(longitude);
+        this.rating = rating;
+        this.category = category;
+        this.ImageUrl = ImageUrl;
+        this.schedule = schedule;
+        this.time = time;
+    }
 
     public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl,String ImageUrl1,String ImageUrl2, int time){
         Images = new ArrayList<String>();
@@ -238,7 +262,6 @@ public class Location implements Serializable {
         this.rating=location.rating;
         this.Time= location.Time;
         this.Name = location.Name;
-
     }
 
 
