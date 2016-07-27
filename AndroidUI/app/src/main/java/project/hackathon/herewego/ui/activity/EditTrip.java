@@ -109,12 +109,12 @@ public class EditTrip extends AppCompatActivity {
 
         // this will ideally be coming from the previous activity(Intent)
         ArrayList<Location> triplocations = new ArrayList<Location>();
-        Location l1 = new Location("l1", "Golconda1", 17.3833, 78.4011, 4.5, "fort", true, "http://3.bp.blogspot.com/-y62A9HnXRr4/U7f8wnsQFeI/AAAAAAAABq4/bxFT15Bc1Xk/s1600/Golconda-Fort.jpg", 1);
-        Location l2 = new Location("l2", "SalarJung", 17.3833, 78.4011, 4.5, "fort", true, "http://hyderabadadvisor.com/wp-content/uploads/2011/05/Salar-Jung-Museum-1.jpg", 1);
-        Location l3 = new Location("l3", "Hussain Sagar", 17.3833, 78.4011, 4.5, "fort", true, "https://upload.wikimedia.org/wikipedia/commons/1/14/Hussain_Sagar_lake,_Hyderabad.jpg", 1);
-        Location l4 = new Location("l4", "Hussain Sagar", 17.3833, 78.4011, 4.5, "fort", true, "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mecca_Masjid_at_Hyderabad.jpg/340px-Mecca_Masjid_at_Hyderabad.jpg", 1);
-        Location l5 = new Location("l5", "Charminar", 17.3833, 78.4011, 4.5, "fort", false, "https://upload.wikimedia.org/wikipedia/commons/d/d1/Charminar-Pride_of_Hyderabad.jpg", 1);
-        Location l6 = new Location("l6", "Charminar", 17.3833, 78.4011, 4.5, "fort", false, "https://upload.wikimedia.org/wikipedia/en/a/a5/Falak_palace.jpg", 1);
+        Location l1 = new Location("l1", "Golconda Fort", 17.3833, 78.4011, 4.0, "fort", true, "http://i10.dainikbhaskar.com/thumbnail/330x286/web2images/www.dailybhaskar.com/2014/04/02/9411_golconda_fort.jpg","http://hyderabadadvisor.com/wp-content/uploads/2011/05/Golconda-Fort-2.jpg","http://planetden.com/wp-content/uploads/2014/03/golconda-fort.jpg" ,1);
+        Location l2 = new Location("l2", "Salar Jung Museum", 17.3714, 78.4804, 3.5, "fort", true, "http://www.hyd.co.in/images/salarjung-thumb.jpg","http://hyderabadadvisor.com/wp-content/uploads/2011/05/Salar-Jung-Museum-1.jpg","http://www.goldenleaf.in/media/images/ToursAndTravelsGallery/salar2_3.jpeg",1);
+        Location l3 = new Location("l3", "Hussain Sagar", 17.4239, 78.4738, 4.5, "fort", true, "http://hyderabad-india-online.com/wp-content/uploads/2014/01/hussain-sagar_150x150px.png","http://www.hellohyderabad.com/Hello-Hyderabad/Tourism/Tourism-images/hussain-sagar.jpg", "http://hyderabadadvisor.com/wp-content/uploads/2011/05/Hussain-Sagar-4.jpg",1);
+        Location l4 = new Location("l4", "Charminar", 17.3616, 78.4747, 5.0, "fort", true, "http://www.helloindiatravel.com/gifs/charminar.jpg","http://cityrockz.com/wp-content/uploads/2012/02/Charminar-Rockz.jpg","https://trabol.s3.amazonaws.com/images/4476/2.jpg" ,1);
+        Location l5 = new Location("l5", "Ramoji Film City", 17.2543, 78.6808, 4.5, "fort", false, "http://www.poultryindia.co.in/media/Ramoji-Film-City.jpg","http://www.hyderabadtourism.travel/images/tourist-places/ramoji-filmcity-hyderabad/ramoji-film-city-hyderabad-india.jpg","http://upload.wikimedia.org/wikipedia/commons/d/da/Ramoji_Film_City,_Hyderabad_-_views_from_Ramoji_Film_City_(1).JPG", 1);
+        Location l6 = new Location("l6", "Birla Mandir", 26.8922, 75.8155, 5.0, "fort", false, "http://theanwar.com/wp-content/uploads/2011/01/birlamandir.jpg","http://1.bp.blogspot.com/-MWr4SeJAqSQ/T9H_4cNzinI/AAAAAAAAIhU/p_5nbeMi5H8/s1600/DSCF0309.JPG","http://www.mybengaluru.com/attachments/communities/53__cimg_0812.jpg",1);
         // Set variables of l1
         l1.setName("Golconda Fort");
         l1.setCity("Hyderabad");

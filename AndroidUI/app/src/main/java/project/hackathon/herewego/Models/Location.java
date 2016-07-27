@@ -44,7 +44,7 @@ public class Location implements Serializable {
         List<Tuple<DateTime,DateTime>> dates = this.getOpenSchedule().get(day);
         String time = "";
         for(Tuple<DateTime,DateTime> t:dates){
-            time+=t.x.toString("HH:mm")+" - "+t.y.toString("HH:mm");
+            time+=t.x.toString("HH:mm:ss")+" - "+t.y.toString("HH:mm:ss");
             time+=", ";
         }
         time = time.substring(0,time.length()-2);
@@ -212,7 +212,7 @@ public class Location implements Serializable {
     }
 
 
-    public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl, int time){
+    public Location(String id, String name, double latitude, double longitude, double rating, String category, boolean IsPreferred, String ImageUrl,String ImageUrl1,String ImageUrl2, int time){
         Images = new ArrayList<String>();
         this.Id =id;
         this.category=category;
@@ -223,9 +223,9 @@ public class Location implements Serializable {
         this.rating=rating;
         this.Time= time;
         this.Name = name;
-        this.Images.add(ImageUrl);
-        this.Images.add(ImageUrl);
-        this.Images.add(ImageUrl);
+        this.Images.add(ImageUrl1);
+        this.Images.add(ImageUrl2);
+        this.Images.add(ImageUrl1);
     }
 
     public Location(Location location){

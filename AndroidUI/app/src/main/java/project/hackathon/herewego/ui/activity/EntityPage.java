@@ -36,15 +36,13 @@ public class EntityPage extends AppCompatActivity {
     Location location;
     Float rating;
     TextToSpeech t1;
+    int state=0;//0=off; 1=on
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entity_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
         Intent intent = getIntent();
         if(intent != null){
             Bundle b = intent.getExtras();
@@ -117,17 +115,28 @@ public class EntityPage extends AppCompatActivity {
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
         scrollView.fullScroll(ScrollView.FOCUS_UP);
         scrollView.smoothScrollTo(0,0);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.entitypage_fab);
+        state=0;
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.entitypage_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String toSpeak = location.getSummary();
-                Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
-                t1.setSpeechRate(0.85f);
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                state = (state + 1) % 2;
+                if(state==0)
+                {
+                    fab.setImageResource(R.drawable.ic_headset_white_24dp);
+                    t1.stop();
+                }
+                else
+                {
+                    String toSpeak = location.getSummary();
+                    Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
+                    t1.setSpeechRate(0.85f);
+                    fab.setImageResource(R.drawable.ic_media_pause);
+                    t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                }
             }
         });
+
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -137,6 +146,7 @@ public class EntityPage extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
