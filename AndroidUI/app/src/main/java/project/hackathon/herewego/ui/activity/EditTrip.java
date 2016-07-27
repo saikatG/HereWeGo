@@ -9,38 +9,24 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.loopj.android.http.*;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.common.collect.HashBasedTable;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.mikepenz.itemanimators.ScaleUpAnimator;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalDateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.Duration;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
 import org.xml.sax.InputSource;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -51,13 +37,8 @@ import javax.xml.xpath.XPathFactory;
 import cz.msebera.android.httpclient.Header;
 import project.hackathon.herewego.Adapters.RecyclerViewAdaptor;
 import project.hackathon.herewego.Dividers.DividerItemDecoration;
-import project.hackathon.herewego.Models.Location;
 import project.hackathon.herewego.Models.LocationsManager;
-import project.hackathon.herewego.Models.Review;
-import project.hackathon.herewego.Models.Trip;
 import project.hackathon.herewego.Models.TripType;
-import project.hackathon.herewego.Models.TripsManager;
-import project.hackathon.herewego.Models.Tuple;
 import project.hackathon.herewego.R;
 import project.hackathon.herewego.RenderMap.MapsActivity;
 
@@ -278,14 +259,11 @@ public class EditTrip extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
             }
-
 
             @Override
             public void onRetry(int retryNo) {
