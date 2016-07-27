@@ -12,6 +12,10 @@
     tools:context=".ui.activity.DestinationSelectionActivity"
     tools:showIn="@layout/activity_destination_selection">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="1dip">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="410dp"
@@ -31,5 +35,6 @@
             android:layout_height="200dp"></ListView>
 
     </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
