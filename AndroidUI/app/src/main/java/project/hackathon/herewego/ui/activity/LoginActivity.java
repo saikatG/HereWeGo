@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -29,10 +32,13 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(0,0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         HWGSharedPreferences.init(this);
         callbackManager = CallbackManager.Factory.create();
+
+        scaleAnimation();
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         ArrayList<String> permissions = new ArrayList<String>();
@@ -107,5 +113,25 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
+    private void scaleAnimation()
+    {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        a.reset();
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.clearAnimation();
+        loginButton.startAnimation(a);
+        a.reset();
+    }
+    private void alphaAnimation()
+    {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        a.reset();
+        TextView tv = (TextView) findViewById(R.id.appNameLogin);
+        tv.clearAnimation();
+        tv.startAnimation(a);
+        a.reset();
+    }
+
 
 }
